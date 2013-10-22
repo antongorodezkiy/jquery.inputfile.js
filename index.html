@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jquery.inputfile.js</title>
+<link type="text/css" rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+<link type="text/css" rel="stylesheet" href="style.css" />
+<link type="text/css" rel="stylesheet" href="jquery.inputfile.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jquery.inputfile.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="page-header">
+                <h1>jquery.fileinput.js</h1>
+            </div>
+    
+            <div class="panel">
+                <p>
+                    The plugin simpley replaces a file input with a button and gives you the ability to remove your selection easily
+                </p>
+                <input type="file" />
+            </div>
+            
+            <div class="panel">
+                <p>
+                    You can also load a previously uploaded file and remove it
+                </p>
+                <input type="file" data-value="http://www.google.es/" data-text="im_a_file.txt"/>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    $('input[type="file"]').inputfile({
+        uploadText: '<span class="glyphicon glyphicon-upload"></span> Select a file',
+        removeText: '<span class="glyphicon glyphicon-trash"></span>',
+        restoreText: '<span class="glyphicon glyphicon-remove"></span>',
+        
+        uploadButtonClass: 'btn btn-primary',
+        removeButtonClass: 'btn btn-default'
+    });
+    </script>
+</body>
+</html>
