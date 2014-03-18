@@ -11,7 +11,8 @@
 		PREVIOUS_CLASS = 'previous-file',
 		DELETED_CLASS = 'deleted',
 		LINK_CLASS = 'upload-button-link',
-		REMOVE_CLASS = 'upload-button-remove';
+		REMOVE_CLASS = 'upload-button-remove',
+		pluginConfig = {};
 	
 	function selectFile(evt) {
 		
@@ -28,6 +29,7 @@
 		
 		$link.attr('href', '#');
 		$link.html($input.val());
+		pluginConfig.fileSelected($input.val());
         $link.on('click', function () { return false; });
 	}
 	
@@ -67,6 +69,7 @@
             $file.replaceWith($file.clone(true));
         }
         
+		pluginConfig.fileRemoved();
 		return false;
 	}
 	
@@ -86,6 +89,8 @@
 				removeName,
 				$checkbox,
 				$fileButton;
+				
+			pluginConfig = config;
 			
 			// Set the html
 			$self.wrap('<div class="' + BASE_CLASS + '"><div class="' + BUTTON_CLASS + '"></div></div>');
@@ -146,7 +151,10 @@
 		removeName: '',
 		removeValue: 1,
         
-        dontRemove: false
+        dontRemove: false,
+		
+		fileSelected: function(file){ },
+		fileRemoved: function(){ }
 	};
 
 }(jQuery));
